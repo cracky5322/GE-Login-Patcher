@@ -108,7 +108,7 @@ namespace GE_Login_Patcher
                 //Check if the file is already patched.
                 if (contents.StartsWith("//PATCHED"))
                 {
-                    errorString = "File has already been patched.";
+                    errorString = "檔案已經修補。";
                 }
                 else
                 {
@@ -161,7 +161,7 @@ namespace GE_Login_Patcher
             //None found, can't proceed.
             if (classNames[0] == "" || classNames[1] == "")
             {
-                errorString = "Could not locate classes. Source file might have changed too much.";
+                errorString = "無法定位類別，原始檔可能變化太大。";
                 return false;
             }
 

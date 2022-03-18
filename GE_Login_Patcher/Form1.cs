@@ -46,7 +46,7 @@ namespace GE_Login_Patcher
             this.textBoxPath.Location = new System.Drawing.Point(12, 103);
             this.textBoxPath.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(486, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(486, 22);
             this.textBoxPath.TabIndex = 0;
             this.textBoxPath.Text = this.folderBrowserElement.SelectedPath;
             this.textBoxPath.TextChanged += new System.EventHandler(this.TextBoxPath_TextChanged);
@@ -57,7 +57,7 @@ namespace GE_Login_Patcher
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowse.TabIndex = 1;
-            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.Text = "瀏覽";
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.ButtonBrowse_Click);
             // 
@@ -68,10 +68,9 @@ namespace GE_Login_Patcher
             this.browseLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.browseLabel.MaximumSize = new System.Drawing.Size(0, 32);
             this.browseLabel.Name = "browseLabel";
-            this.browseLabel.Size = new System.Drawing.Size(276, 26);
+            this.browseLabel.Size = new System.Drawing.Size(341, 24);
             this.browseLabel.TabIndex = 2;
-            this.browseLabel.Text = "Input directory with \"app.js\" file. \nIf you used default install directory, this " +
-    "should be correct.";
+            this.browseLabel.Text = "請選擇 \"app.js \"檔案的目錄。\r\n如果你使用預設的安裝目錄，那麼預設的路徑應該會是正確的。";
             // 
             // buttonPatch
             // 
@@ -80,7 +79,7 @@ namespace GE_Login_Patcher
             this.buttonPatch.Name = "buttonPatch";
             this.buttonPatch.Size = new System.Drawing.Size(75, 23);
             this.buttonPatch.TabIndex = 3;
-            this.buttonPatch.Text = "Patch";
+            this.buttonPatch.Text = "修補";
             this.buttonPatch.UseVisualStyleBackColor = true;
             this.buttonPatch.Click += new System.EventHandler(this.ButtonPatch_Click);
             // 
@@ -90,7 +89,7 @@ namespace GE_Login_Patcher
             this.labelError.Location = new System.Drawing.Point(12, 143);
             this.labelError.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 13);
+            this.labelError.Size = new System.Drawing.Size(0, 12);
             this.labelError.TabIndex = 4;
             // 
             // buttonRestore
@@ -100,7 +99,7 @@ namespace GE_Login_Patcher
             this.buttonRestore.Name = "buttonRestore";
             this.buttonRestore.Size = new System.Drawing.Size(75, 23);
             this.buttonRestore.TabIndex = 5;
-            this.buttonRestore.Text = "Restore";
+            this.buttonRestore.Text = "還原";
             this.buttonRestore.UseVisualStyleBackColor = false;
             this.buttonRestore.Click += new System.EventHandler(this.ButtonRestore_Click);
             // 
@@ -114,7 +113,7 @@ namespace GE_Login_Patcher
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
             this.Name = "Form1";
-            this.Text = "GE Login Patcher";
+            this.Text = "GeForce Experience 免登入修改器";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,12 +154,12 @@ namespace GE_Login_Patcher
 
             if (!m_patcher.Patch(folderBrowserElement.SelectedPath, ref errorString))
             {
-                this.labelError.Text = "Error: " + errorString;
+                this.labelError.Text = "錯誤: " + errorString;
             }
             else
             {
                 this.labelError.ForeColor = Color.Green;
-                this.labelError.Text = "Success!";
+                this.labelError.Text = "完成!";
             }
 
             UpdateRestoreButton();
@@ -170,7 +169,7 @@ namespace GE_Login_Patcher
             string path = folderBrowserElement.SelectedPath;
             m_patcher.Restore(path);
 
-            this.labelError.Text = "Backup restored successfully!";
+            this.labelError.Text = "已成功還原!";
             this.labelError.ForeColor = Color.Green;
 
             UpdateRestoreButton();
